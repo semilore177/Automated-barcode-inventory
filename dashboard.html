@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - LASU Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>protectPage();</script>
+  <h1>Welcome to the LASU Platform</h1>
+  <div class="categories">
+    <button onclick="goToCategory('science')">Science</button>
+    <button onclick="goToCategory('commercial')">Commercial</button>
+    <button onclick="goToCategory('art')">Art</button>
+  </div>
+  <button onclick="logout()">Logout</button>
+
+  <style>
+    body{
+      background:grey;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    h1{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .categories{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <script>
+    function goToCategory(category) {
+      window.location.href = `scanner.html?category=${category}`;
+    }
+  </script>
+  <script src="auth.js"></script>
+</body>
+</html>

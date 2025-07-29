@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - LASU Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input type="text" id="regUsername" placeholder="Choose a username" required><br>
+    <input type="password" id="regPassword" placeholder="Choose a password" required><br>
+    <button type="submit">Register</button>
+  </form>
+  <p id="regError" style="color: red;"></p>
+  <p>Already have an account? <a href="login.html">Login here</a></p>
+
+  <style>
+    body{
+      background: grey;
+      margin: 0;
+      height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+     input{
+      width: 360px;
+      height: 30px;
+      padding: 5px;
+      gap: 10px;
+      border: 1px solid rgb(55, 55, 172);
+      border-radius: 10px;
+    }
+
+  </style>
+
+  <script src="auth.js"></script>
+</body>
+</html>

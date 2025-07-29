@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subcategory Topics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>protectPage();</script>
+  <h2 id="subcategoryTitle">Loading...</h2>
+  <div id="topics"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const sub = params.get('sub');
+
+    fetch('data.json')
+      .then(res => res.json())
+      .then(data => {
+        const subcategory = data[category]?.subcategories?.[sub];
+        if (!subcategory) {
+          document.getElementById('subcategoryTitle').innerText = "Subcategory not found.";
+          return;
+        }
+
+        document.getElementById('subcategoryTitle').innerText = subcategory.title;
+        const topicsDiv = document.getElementById('topics');
+        subcategory.topics.forEach(topic => {
+          const btn = document.createElement('button');
+          btn.innerText = topic;
+          btn.onclick = () => {
+            alert(`Accessing topic: ${topic}`); // or redirect
+          };
+          topicsDiv.appendChild(btn);
+        });
+      });
+  </script>
+  <script src="auth.js"></script>
+</body>
+</html>

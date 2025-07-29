@@ -1,0 +1,33 @@
+{
+  "science": {
+    "title": "Science",
+    "subcategories": {
+      "physics": {
+        "title": "Physics",
+        "topics": ["Mechanics", "Waves", "Optics"]
+      },
+      "chemistry": {
+        "title": "Chemistry",
+        "topics": ["Organic Chemistry", "Inorganic Chemistry", "Electrochemistry"]
+      }
+    }
+  },
+  "commercial": {
+    "title": "Commercial",
+    "subcategories": {
+      "accounting": {
+        "title": "Accounting",
+        "topics": ["Trial Balance", "Final Accounts"]
+      }
+    }
+  },
+  "art": {
+    "title": "Art",
+    "subcategories": {
+      "literature": {
+        "title": "Literature",
+        "topics": ["Drama", "Prose"]
+      }
+    }
+  }
+}

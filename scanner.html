@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan Barcode</title>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <script>protectPage();</script>
+  <h2>Scan a Barcode to Access Content</h2>
+  <div id="reader"></div>
+  <p id="result">Waiting for scan...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+
+    function onScanSuccess(decodedText) {
+      document.getElementById('result').innerText = `Scanned: ${decodedText}`;
+
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          const subs = data[category]?.subcategories;
+          if (!subs || !subs[decodedText.toLowerCase()]) {
+            document.getElementById('result').innerText = "No matching subcategory.";
+            return;
+          }
+          window.location.href = `subcategory.html?category=${category}&sub=${decodedText.toLowerCase()}`;
+        });
+
+      html5QrCode.stop();
+    }
+
+    const html5QrCode = new Html5Qrcode("reader");
+    html5QrCode.start(
+      { facingMode: "environment" },
+      { fps: 10, qrbox: 250 },
+      onScanSuccess,
+      () => {}
+    );
+  </script>
+  <script src="auth.js"></script>
+</body>
+</html>
