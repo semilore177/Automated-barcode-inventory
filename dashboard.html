@@ -10,15 +10,18 @@
   <script>protectPage();</script>
   <h1>Welcome to the LASU Platform</h1>
   <div class="categories">
-    <button onclick="goToCategory('science')">Science</button>
-    <button onclick="goToCategory('commercial')">Commercial</button>
-    <button onclick="goToCategory('art')">Art</button>
+    <button class="science"onclick="goToCategory('science')">Science</button>
+    <button class="fms"onclick="goToCategory('commercial')">Commercial</button>
+    <button class="arts"onclick="goToCategory('art')">Art</button>
   </div>
-  <button onclick="logout()">Logout</button>
+  <button class="logout"onclick="logout()">Logout</button>
 
   <style>
     body{
       background:grey;
+      margin: 0;
+      height: 100vh;
+      box-sizing: border-box;
       background-size: cover;
       background-repeat: no-repeat;
     }
@@ -33,10 +36,71 @@
       justify-content: center;
       margin: 0;
     }
-    button{
+    .science{
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 120px;
+      padding: 12px;
+      margin: 10px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .science:hover{
+      background: #062c55;
+    }
+    .fms{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      padding: 12px;
+      margin: 10px;
+      background-color: #16da68;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .fms:hover{
+      background: #0d3f22 ;
+    }
+    .arts{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      margin: 10px;
+      padding: 12px;
+      background-color: #c71c1c;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .arts:hover{
+      background: #4d0e0e;
+    }
+    .logout{
+      width: 120px;
+      padding: 12px;
+      margin-left: 120px;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
   </style>
 
